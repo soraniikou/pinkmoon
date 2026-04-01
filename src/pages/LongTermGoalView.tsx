@@ -18,59 +18,59 @@ const STORAGE_GOAL = "pm_goal_v1";
 const horizons = [
   {
     key: "d3",
-    label: "",
+    label: "3 Days",
     phase: "",
     title: "",
     body: "",
-    prompt: "三日後の自分へ。いまの胸のざわめきをたいせつに",
+    prompt: "To myself in 3 days. Treasure the flutter in your heart right now.",
   },
   {
     key: "w1",
-    label: "",
+    label: "1 Week",
     phase: "",
     title: "",
     body: "",
-    prompt: "一週間後の自分へ。世界が変わり始めたかも",
+    prompt: "To in a week. Perhaps the world has begun to change.",
   },
   {
     key: "m1",
-    label: "",
+    label: "1 Month",
     phase: "",
     title: "",
     body: "",
-    prompt: "一か月後の自分へ。誰を思い出していますか？",
+    prompt: "To myself in a month. Who is on your mind today?",
   },
   {
     key: "y1",
-    label: "",
+    label: "1 Year",
     phase: "",
     title: "",
     body: "",
-    prompt: "一年後の自分へ。どんな恋をしていたいですか？",
+    prompt: "To myself in a year. What kind of love do you wish to be in？",
   },
   {
     key: "y3",
-    label: "",
+    label: "3 Year",
     phase: "",
     title: "",
     body: "",
-    prompt: "三年後の自分へ。いまの恋は、どんな章に入っていますか？",
+    prompt: "To myself in 3 years. What chapter of your love story are you in？",
   },
   {
     key: "y50",
-    label: "",
+    label: "50 Year",
     phase: "",
     title: "",
     body: "",
-    prompt: "50年後のふたり　手をつないでいられますように",
+    prompt: "To us in 50 years. May we still be holding hands.",
   },
   {
     key: "y100",
-    label: "",
+    label: "100 Year",
     phase: "",
     title: "",
     body: "",
-    prompt: "100年先の宇宙へ。あなたの声は美しいまま",
+    prompt: "To the universe in 100 years. Your voice remains as beautiful as ever.",
   },
 ] as const;
 
@@ -216,8 +216,8 @@ const LongTermGoalView = () => {
       scale: [1, 1.08, 1],
       transition: { duration: 0.85, ease: "easeInOut" },
     });
-    toast.success("星空が百年を流れました", {
-      description: "未来の自分へ、いまの想いをそっと預けました。",
+    toast.success("A century has flowed through the starry sky.", {
+      description: "I've gently entrusted your current feelings to your future self",
     });
     setTimeout(() => setStarFlow(false), 12000);
   }, [controls]);
@@ -232,34 +232,34 @@ const LongTermGoalView = () => {
   const crystallize = () => {
     const text = draft.trim();
     if (!text) {
-      toast.message("言葉を残してから結晶化してください");
+      toast.message("Please leave some words before crystallizing.");
       return;
     }
     const c: Crystal = {
       id: crypto.randomUUID(),
       text,
       horizon: h.key,
-      emotion: emotionTag.trim() || "恋",
+      emotion: emotionTag.trim() || "love",
       createdAt: new Date().toISOString(),
     };
     const next = [c, ...crystals];
     setCrystals(next);
     saveCrystals(next);
-    toast.success("ピンクの結晶を保存しました", {
-      description: "いつかのあなたが、ここを開けます。",
+    toast.success("Crystal saved.", {
+      description: "Oneday,your future seif will open this",
     });
   };
 
   const saveTenYearGoal = () => {
     const t = goalText.trim();
     if (!t) {
-      toast.message("未来の目標を書いてください");
+      toast.message("Please write your goal for the future.");
       return;
     }
     const at = new Date().toISOString();
     saveGoal({ text: t, savedAt: at });
     setSavedGoalAt(at);
-    toast.success("羅針盤に刻みました", {
+    toast.success("Etched onto the compass", {
       description: "）",
     });
   };
@@ -285,13 +285,13 @@ const LongTermGoalView = () => {
 
         <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-border/40 bg-background/40 px-4 py-3 backdrop-blur-md">
           <Button variant="ghost" size="icon" asChild className="shrink-0">
-            <Link to="/" aria-label="トップへ">
+            <Link to="/" aria-label="to the top">
               <ChevronLeft className="h-5 w-5" />
             </Link>
           </Button>
           <div className="min-w-0 flex-1">
-            <p className="font-display text-sm tracking-wider text-foreground/90">未来への手紙</p>
-            <p className="truncate text-xs text-muted-foreground">Pink Moon · 4/2 · 恋に誘われて</p>
+            <p className="font-display text-sm tracking-wider text-foreground/90">Guided by love</p>
+            <p className="truncate text-xs text-muted-foreground"></p>
           </div>
           <Sparkles className="h-5 w-5 shrink-0 text-primary" aria-hidden />
         </header>
@@ -302,7 +302,7 @@ const LongTermGoalView = () => {
               百年のロマン
             </h1>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              スライダーで時代を選びます。月を右へ送ると、3日後、1週間後、1ヶ月後.....100年後まで時間が流れます。
+              Choose an era with the slider. Swipe the monn to the right to let time flow...up to 100 years into the future.
             </p>
           </section>
 
@@ -321,7 +321,7 @@ const LongTermGoalView = () => {
               />
 
               <div className="relative flex flex-col items-center gap-2 pb-2 pt-4">
-                <p className="text-center text-xs text-muted-foreground">月を右（未来）へスワイプして送る</p>
+                <p className="text-center text-xs text-muted-foreground">Swipe the moon to the right</p>
                 <div className="relative h-36 w-full max-w-[280px]">
                   <div className="absolute inset-x-8 bottom-2 top-8 rounded-full border border-dashed border-primary/35 bg-primary/5" />
                   <motion.div
@@ -344,7 +344,7 @@ const LongTermGoalView = () => {
                     </motion.div>
                   </motion.div>
                   <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[10px] tracking-[0.3em] text-primary/70">
-                    未来 →
+                       →
                   </span>
                 </div>
               </div>
@@ -362,7 +362,7 @@ const LongTermGoalView = () => {
                   id="letter"
                   value={draft}
                   onChange={(e) => setDraft(e.target.value)}
-                  placeholder="未来の自分へ"
+                  placeholder="To myself in the future"
                   className="min-h-[120px] resize-none border-primary/20 bg-background/80"
                 />
               </div>
@@ -370,7 +370,7 @@ const LongTermGoalView = () => {
               <div className="flex flex-wrap gap-2">
                 <Button type="button" variant="secondary" className="gap-2" onClick={crystallize}>
                   <Gem className="h-4 w-4" />
-                  想いを結晶化
+                  crystallize feelings
                 </Button>
                 
               </div>
@@ -381,14 +381,14 @@ const LongTermGoalView = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 font-display text-lg">
                 <Gem className="h-5 w-5 text-primary" />
-                恋のアーカイブ
+                Archive of love
               </CardTitle>
-              <CardDescription>想いの欠片をここに残して</CardDescription>
+              <CardDescription>Leave fragmens of your heart here.</CardDescription>
             </CardHeader>
             <CardContent>
               <AnimatePresence mode="popLayout">
                 {crystals.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">まだ結晶はありません。</p>
+                  <p className="text-sm text-muted-foreground">No crystals yet.</p>
                 ) : (
                   <ul className="space-y-3">
                     {crystals.map((c) => (
