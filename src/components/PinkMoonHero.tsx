@@ -5,11 +5,11 @@ import pinkMoonImg from "@/assets/pink-moon.png";
 import FloatingPetals from "./FloatingPetals";
 
 const phases = [
-  { label: "切なさ", sub: "", gradient: "linear-gradient(135deg, hsl(250 40% 15%), hsl(280 35% 20%))", poem: "あなたの思いが叶いますよう" },
-  { label: "想い", sub: "", gradient: "linear-gradient(135deg, hsl(280 40% 18%), hsl(330 50% 25%))", poem: "月は　あの人に会わせてくれるかな" },
-  { label: "恋", sub: "", gradient: "linear-gradient(135deg, hsl(320 50% 22%), hsl(340 65% 30%))", poem: "あなたの声が一番美しい" },
-  { label: "いざない", sub: "", gradient: "linear-gradient(135deg, hsl(340 70% 28%), hsl(350 80% 35%))", poem: "両思いは、奇跡的" },
-  { label: "運命", sub: "", gradient: "linear-gradient(135deg, hsl(270 50% 20%), hsl(290 60% 30%))", poem: "私は、あなたに出逢うために生まれてきた" },
+  { label: "Sentimental", sub: "", gradient: "linear-gradient(135deg, hsl(250 40% 15%), hsl(280 35% 20%))", poem: "May your deepest wishes come true" },
+  { label: "Affection", sub: "", gradient: "linear-gradient(135deg, hsl(280 40% 18%), hsl(330 50% 25%))", poem: "I wonder if the monn will lead me to you" },
+  { label: "Longing", sub: "", gradient: "linear-gradient(135deg, hsl(320 50% 22%), hsl(340 65% 30%))", poem: "Your voice is the most beautiful melody" },
+  { label: "Enchantment", sub: "", gradient: "linear-gradient(135deg, hsl(340 70% 28%), hsl(350 80% 35%))", poem: "To love and be loved is a true miracle" },
+  { label: "Destiny", sub: "", gradient: "linear-gradient(135deg, hsl(270 50% 20%), hsl(290 60% 30%))", poem: "I was born for the moment I finally met you" },
 ];
 
 /** タップのたびにフェーズとともに月の見え方を変える */
@@ -106,7 +106,7 @@ style={{ filter: MOON_COLORS[phase] }}
         transition={{ duration: 1.2, delay: 0.3 }}
       >
         <h1 className="font-display text-base sm:text-lg font-light tracking-wider glow-text text-foreground mb-3">
-          恋に誘われて
+          Guided by Love
         </h1>
         
           
@@ -163,7 +163,7 @@ style={{ filter: MOON_COLORS[phase] }}
             onClick={(e) => e.stopPropagation()}
             className="font-body relative z-30 inline-block text-sm text-primary/70 px-4 py-2 rounded-full border border-primary/40 hover:bg-primary/10 transition-colors"
           >
-            未来への手紙 · 百年のロマンへ
+            A letter to the future · A century's dream
           </Link>
         </motion.div>
       </motion.div>
