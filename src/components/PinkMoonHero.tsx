@@ -80,7 +80,7 @@ const PinkMoonHero = () => {
 
       {/* Moon — タップでフェーズとサイズが変わる */}
       <motion.div
-        className="relative z-20 mb-8 flex items-center justify-center"
+        className="relative z-20 mb-8 flex items-center justify-center w-full"
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
